@@ -5,7 +5,7 @@ import smiley from "../../assets/smiley.svg";
 import paperclip from "../../assets/paperclip.svg";
 import { useState } from "react";
 
-function Footer() {
+function Footer(props) {
   const [message, setMessage] = useState("");
 
   const onChangeInput = (event) => {
@@ -14,7 +14,19 @@ function Footer() {
 
   const onKeyDownInput = (event) => {
     if (event.key === "Enter") {
-      console.log(message);
+      const newMessage = [...props.messages];
+      const newPerson = {
+        idPerson: Date.now(),
+        person: props.person,
+        message: message,
+        hours: new Date().toLocaleString("pt-BR", {
+          hour: "numeric",
+          minute: "numeric",
+          hour12: false,
+        }),
+      };
+      newMessage.push(newPerson);
+      props.setMessages(newMessage);
       setMessage("");
     }
   };

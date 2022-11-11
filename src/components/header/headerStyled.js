@@ -14,13 +14,13 @@ export const MainPerson = styled.div`
 
   img {
     border-radius: 50%;
-    width: 50px;
+    width: 100px;
   }
 
   div {
     font-weight: bold;
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;

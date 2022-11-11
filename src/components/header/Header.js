@@ -3,13 +3,22 @@ import phone from "../../assets/phone.svg";
 import hamburger from "../../assets/hamburger.svg";
 import { MainHeader, MainPerson, Icons } from "./headerStyled";
 
-function Header() {
+function Header(props) {
+  function onChangePerson(event) {
+    props.setPerson(event.target.value);
+  }
   return (
     <MainHeader>
       <MainPerson>
         <img src="https://picsum.photos/200" alt="imagem perfil" />
         <div>
-          <p>Zilan</p>
+          <select value={props.person} onChange={onChangePerson}>
+            <option value="me">Me</option>
+            <option value="gandalf">Gandalf</option>
+            <option value="arwen">Arwen</option>
+            <option value="samwise">Samwise</option>
+            <option value="aragorn">Aragorn</option>
+          </select>
           <p>Online</p>
         </div>
       </MainPerson>
